@@ -23,13 +23,11 @@ class HttpWorker {
                         if data.count > 0 { // check if casted result is not empty
                             var userArray = [UserObject]() // create array of local userObject
                             for item in data {
-                                var user = UserObject() // create local userObject
-                                
-                                user.img = item["img"] ?? ""
-                                user.likes = item["likes"] ?? ""
-                                user.views = item["views"] ?? ""
-                                user.userName = item["name"] ?? ""
-                                
+                                var user = UserObject(username: item["name"],
+                                                      img: item["img"],
+                                                      likes: item["likes"],
+                                                      views: item["views"]) // create local userObject
+                         
                                 userArray.append(user) // created user should be appended to the array of users
                             }
                             
@@ -38,8 +36,12 @@ class HttpWorker {
                         } else {
                             completionBlock(nil) // if results are empty we do not have any users so lets complete with nil
                         }
+                    } else {
+                        completionBlock(nil) // if results are empty we do not have any users so lets complete with nil
                     }
-                } // JSON check End
+                } else {
+                    completionBlock(nil) // if results are empty we do not have any users so lets complete with nil
+                }// JSON check End
             } // dispatch end
         }
     }

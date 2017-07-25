@@ -35,8 +35,8 @@ class NewsScreen: UIViewController {
         DispatchQueue.global(qos: .userInitiated).async {
             let worker = HttpWorker()
             worker.fetchUserInformationFromRemoteServer { [weak self] (object) in
-                if object != nil {
-                    self?.dataObject = object!
+                if let data = object {
+                    self?.dataObject = data
                     self?.dataSourceAndDelegation(with: true) // we have objects so lets init tableView and CollectionView
                 } else {
                     self?.dataSourceAndDelegation(with: false) // we do not have any object so lets deAlloc Table and Collection
@@ -48,20 +48,6 @@ class NewsScreen: UIViewController {
     // MARK: - Assign TableView Delegates
     private func dataSourceAndDelegation (with status: Bool) {
         DispatchQueue.main.async { [weak self] in
-            if status {
-                self?.tableView.delegate = self
-                self?.tableView.dataSource = self
-                
-                self?.collectionView.delegate = self
-                self?.collectionView.dataSource = self
-            } else {
-                self?.tableView.delegate = nil
-                self?.tableView.dataSource = nil
-                
-                self?.collectionView.delegate = nil
-                self?.collectionView.dataSource = nil
-            }
-            
             self?.collectionView.reloadData()
             self?.tableView.reloadData()
         }

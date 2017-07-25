@@ -36,10 +36,10 @@
             </objects>
             <point key="canvasLocation" x="-90" y="-638"/>
         </scene>
-        <!--main-->
+        <!--News Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="NewsScreen" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="News Screen" customClass="NewsScreen" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -122,6 +122,10 @@
                                             </connections>
                                         </collectionViewCell>
                                     </cells>
+                                    <connections>
+                                        <outlet property="dataSource" destination="BYZ-38-t0r" id="APb-LZ-yPP"/>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="Yde-BW-DCv"/>
+                                    </connections>
                                 </collectionView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="xxxNewsFeedTabCell" rowHeight="473" id="V47-mL-gdl" customClass="NewsTabCell" customModule="Instagram" customModuleProvider="target">
@@ -152,6 +156,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XMt-fa-NoY">
                                                     <rect key="frame" x="0.0" y="50" width="375" height="250"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="1" green="0.40421392368685516" blue="0.39049641968590643" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="News_Tagged" translatesAutoresizingMaskIntoConstraints="NO" id="NH3-7P-G4b">
                                                     <rect key="frame" x="16" y="258" width="26" height="26"/>
@@ -263,6 +268,10 @@ Cg
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="IA0-Y3-6FA"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="WiZ-vt-eGM"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

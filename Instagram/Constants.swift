@@ -12,7 +12,7 @@ import UIKit
 struct Constants {
     
     struct Http {
-        static let getUrl = "https://mgldev.ge/Users.json"
+        static let getUrl = "https://mgldev.ge/UsersNew.json"
     }
     
 }

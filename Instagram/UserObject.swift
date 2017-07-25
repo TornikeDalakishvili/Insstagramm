@@ -13,4 +13,14 @@ struct UserObject {
     var img: String!
     var likes: String!
     var views: String!
+    
+    init(username: String? = "",
+         img: String? = "",
+         likes: String? = "",
+         views: String? = "") {
+        self.userName = username
+        self.img = img
+        self.likes = likes
+        self.views = views
+    }
 }
